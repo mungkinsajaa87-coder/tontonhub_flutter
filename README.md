@@ -51,8 +51,6 @@ TontonHub adalah aplikasi Flutter multiplatform bertema **Video Streaming Platfo
 
 ## Collection Database
 
-Minimal 5 collection sudah terpenuhi:
-
 1. `users`
 2. `announcements`
 3. `videos`

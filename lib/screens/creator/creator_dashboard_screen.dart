@@ -14,7 +14,7 @@ class CreatorDashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dashboard Creator'),
+        title: const Text('TontonHub Creator'),
         actions: [IconButton(onPressed: AuthService.instance.logout, icon: const Icon(Icons.logout))],
       ),
       body: SingleChildScrollView(
@@ -22,8 +22,41 @@ class CreatorDashboardScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Panel Pengelolaan TontonHub', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900)),
-            const SizedBox(height: 18),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(22),
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [
+                  Color(0xFF0B1F3A),
+                  Color(0xFF1565C0),
+                  ],
+                ),
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Creator Studio TontonHub',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 26,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Kelola video, pengumuman, dan data subscriber dari satu tempat.',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
             LayoutBuilder(
               builder: (context, constraints) {
                 final itemWidth = constraints.maxWidth > 800 ? (constraints.maxWidth - 28) / 3 : constraints.maxWidth;
@@ -31,8 +64,8 @@ class CreatorDashboardScreen extends StatelessWidget {
                   spacing: 14,
                   runSpacing: 14,
                   children: [
-                    SizedBox(width: itemWidth, child: _CountCard<AnnouncementModel>(title: 'Info', icon: Icons.campaign, stream: FirestoreService.instance.watchAnnouncements())),
-                    SizedBox(width: itemWidth, child: _CountCard<VideoModel>(title: 'Video', icon: Icons.ondemand_video, stream: FirestoreService.instance.watchVideos())),
+                    SizedBox(width: itemWidth, child: _CountCard<AnnouncementModel>(title: 'Total Info', icon: Icons.campaign, stream: FirestoreService.instance.watchAnnouncements())),
+                    SizedBox(width: itemWidth, child: _CountCard<VideoModel>(title: 'Total Video', icon: Icons.ondemand_video, stream: FirestoreService.instance.watchVideos())),
                     SizedBox(width: itemWidth, child: _CountCard<RegistrationModel>(title: 'Subscribe', icon: Icons.fact_check, stream: FirestoreService.instance.watchAllRegistrations())),
                   ],
                 );

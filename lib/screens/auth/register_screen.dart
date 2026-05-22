@@ -63,7 +63,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Register Akun')),
+      appBar: AppBar(title: const Text('Daftar Akun')),
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
@@ -75,6 +75,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: [
                   const Text('Buat Akun TontonHub', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800)),
                   const SizedBox(height: 18),
+                  Text(
+                    'Pilih role sebagai Creator atau Subscriber untuk mulai menggunakan TontonHub.',
+                    style: TextStyle(
+                      color: Colors.grey.shade600,
+                      fontSize: 14,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
                   TextFormField(
                     controller: _name,
                     decoration: const InputDecoration(labelText: 'Nama Lengkap', prefixIcon: Icon(Icons.person_outline)),

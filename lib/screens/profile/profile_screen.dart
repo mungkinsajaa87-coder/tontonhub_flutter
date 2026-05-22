@@ -74,7 +74,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profil Pengguna'),
+        title: const Text('Profil Saya'),
         actions: [IconButton(onPressed: AuthService.instance.logout, icon: const Icon(Icons.logout))],
       ),
       body: StreamBuilder<AppUser?>(
@@ -96,6 +96,41 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       key: _formKey,
                       child: Column(
                         children: [
+                          Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [
+                                  Color(0xFF0B1F3A),
+                                  Color(0xFF1565C0),
+                                ],
+                              ),
+                              borderRadius: BorderRadius.circular(22),
+                            ),
+                            child: const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Profil Pengguna',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'Kelola informasi akun dan data profil TontonHub.',
+                                  style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 20),
                           CircleAvatar(
                             radius: 48,
                             backgroundImage: _photoUrl.isNotEmpty ? NetworkImage(_photoUrl) : null,

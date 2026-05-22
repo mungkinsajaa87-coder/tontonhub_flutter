@@ -13,7 +13,7 @@ class StudentDashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dashboard Subscriber'),
+        title: const Text('TontonHub Subscriber'),
         actions: [IconButton(onPressed: AuthService.instance.logout, icon: const Icon(Icons.logout))],
       ),
       body: SingleChildScrollView(
@@ -102,13 +102,13 @@ class _LatestVideos extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Video Terbaru', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
+          const Text('Rekomendasi Video', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
           const SizedBox(height: 10),
           StreamBuilder<List<VideoModel>>(
             stream: FirestoreService.instance.watchVideos(),
             builder: (context, snapshot) {
               final items = (snapshot.data ?? []).take(3).toList();
-              if (items.isEmpty) return const Text('Belum ada video.');
+              if (items.isEmpty) return const Text('Belum ada video tersedia.');
               return Column(
                 children: items.map((e) => ListTile(contentPadding: EdgeInsets.zero, title: Text(e.title), subtitle: Text(e.channelName))).toList(),
               );

@@ -21,6 +21,40 @@ class StudentDashboardScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+             Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(22),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [
+                  Color(0xFF0B1F3A),
+                  Color(0xFF1565C0),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(24),
+            ),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Selamat Datang di TontonHub',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 26,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  'Temukan video terbaru, lihat riwayat tontonan, dan ikuti konten favoritmu.',
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+          ),
             StreamBuilder(
               stream: FirestoreService.instance.watchCurrentUser(),
               builder: (context, snapshot) {
@@ -76,7 +110,8 @@ class _LatestAnnouncements extends StatelessWidget {
     return AppCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: [ 
+          const SizedBox(height: 18),
           const Text('Info Terbaru', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
           const SizedBox(height: 10),
           StreamBuilder<List<AnnouncementModel>>(

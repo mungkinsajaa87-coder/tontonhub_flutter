@@ -105,6 +105,11 @@ class _VideoTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 2,
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
         onTap: () => showDialog(context: context, builder: (_) => _VideoDetail(video: video)),
@@ -126,9 +131,9 @@ class _VideoTile extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              Text(video.title, maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
+              Text(video.title, maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800)),
               const SizedBox(height: 3),
-              Text(video.channelName, maxLines: 1, overflow: TextOverflow.ellipsis),
+              Text(video.channelName, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(color: Colors.grey.shade600, fontSize: 13)),
               const SizedBox(height: 5),
               Row(
                 children: [

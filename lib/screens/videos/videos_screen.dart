@@ -229,7 +229,22 @@ class _VideoDetailState extends State<_VideoDetail> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(widget.video.title),
+      title: Row(
+        children: [
+          const Icon(
+            Icons.play_circle_fill_rounded,
+            color: Color(0xFF1565C0),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              widget.video.title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
       content: SizedBox(
         width: 720,
         child: SingleChildScrollView(

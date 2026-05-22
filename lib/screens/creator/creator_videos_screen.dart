@@ -71,7 +71,7 @@ class _CreatorVideosScreenState extends State<CreatorVideosScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Kelola Video')),
+      appBar: AppBar(title: const Text('Creator Studio Video')),
       body: LayoutBuilder(
         builder: (context, constraints) {
           final wide = constraints.maxWidth >= 900;
@@ -92,8 +92,40 @@ class _CreatorVideosScreenState extends State<CreatorVideosScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Tambah Video', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
-              const SizedBox(height: 14),
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: const Color(0x1A1565C0),
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: const Icon(
+                      Icons.video_call_rounded,
+                      color: Color(0xFF1565C0),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  const Expanded(
+                    child: Text(
+                      'Upload Konten Video',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Tambahkan judul, deskripsi, channel, durasi, dan URL video untuk ditampilkan ke subscriber.',
+                style: TextStyle(
+                  color: Colors.grey.shade600,
+                  fontSize: 13,
+                ),
+              ),
+              const SizedBox(height: 18),
               TextField(controller: _title, decoration: const InputDecoration(labelText: 'Judul Video')),
               const SizedBox(height: 12),
               TextField(controller: _description, maxLines: 4, decoration: const InputDecoration(labelText: 'Deskripsi')),
